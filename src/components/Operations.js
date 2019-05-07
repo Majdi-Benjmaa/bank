@@ -4,7 +4,7 @@ class Operations extends Component {
     constructor(){
         super()
         this.state = {
-            amountInp : "",
+            amountInp : 0,
             vendorInp : "", 
             categoryInp : ""
         }
@@ -17,6 +17,19 @@ handleInput = e => {
     })
 }
 
+deposit = () =>{
+    let a = this.state.amountInp
+    let v = this.state.vendorInp
+    let c = this.state.categoryInp
+    this.props.deposit(a, v, c)
+}
+withdraw = () =>{
+    let a = this.state.amountInp
+    let v = this.state.vendorInp
+    let c = this.state.categoryInp
+    this.props.withdraw(a, v, c)
+}
+
   render() {
     
     return (
@@ -24,8 +37,8 @@ handleInput = e => {
         <input id = "amountInp" placeholder="Amount" onChange={this.handleInput} type="text" />
         <input id = "vendorInp" placeholder="Vendor" onChange={this.handleInput} type="text" />
         <input id = "categoryInp" placeholder="Category" onChange={this.handleInput} type="text" />
-        <button>Deposit</button>
-        <button>Withdraw</button>
+        <button id = "deposit" onClick = {this.deposit}>Deposit</button>
+        <button id = "withdraw" onClick = {this.withdraw}>Withdraw</button>
       </div>
     )
   }
