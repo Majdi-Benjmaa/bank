@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 const transactionSchema = new Schema({
     amount: Number,
     vendor: String,
-    categoty: String
+    category: String,
+    status : String
 })
 
 const Transaction = mongoose.model("Transaction", transactionSchema)
@@ -35,7 +36,8 @@ app.post("/transaction", function(req,res){
     let t1 = new Transaction({
         amount : req.body.amount,
         vendor : req.body.vendor,
-        categoty : req.body.categoty
+        category : req.body.category,
+        status : req.body.status,
     })
     t1.save()
     res.send(t1)

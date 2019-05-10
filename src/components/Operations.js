@@ -21,19 +21,22 @@ deposit = () =>{
     let a = this.state.amountInp
     let v = this.state.vendorInp
     let c = this.state.categoryInp
-    this.props.deposit(a, v, c)
+    let status = "positive"
+    this.props.deposit(a, v, c, status)
 }
 withdraw = () =>{
     let a = this.state.amountInp
     let v = this.state.vendorInp
     let c = this.state.categoryInp
-    this.props.withdraw(a, v, c)
+    let status = "negative"
+    this.props.balance > 500? this.props.withdraw(a, v, c, status) : console.log("not today")
+
 }
 
   render() {
     
     return (
-      <div>
+      <div id = "main-search">
         <input id = "amountInp" placeholder="Amount" onChange={this.handleInput} type="text" />
         <input id = "vendorInp" placeholder="Vendor" onChange={this.handleInput} type="text" />
         <input id = "categoryInp" placeholder="Category" onChange={this.handleInput} type="text" />
